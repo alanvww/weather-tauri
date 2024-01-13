@@ -1,0 +1,311 @@
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.App {
+	color: white;
+	margin: 0 auto;
+	max-width: 1080px;
+	padding: 0 25px;
+}
+
+body {
+	animation: gradient 30s ease infinite;
+	background: radial-gradient(
+		circle,
+		rgba(238, 174, 202, 1) 0%,
+		rgba(148, 187, 233, 1) 100%
+	);
+	background-size: 400% 400%;
+}
+
+nav {
+	display: flex;
+	justify-content: justify;
+	gap: 10px;
+	align-items: center;
+}
+
+.currentLocation {
+	background-color: transparent;
+	color: white;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	padding: 8px 15px;
+	font-size: large;
+	cursor: pointer;
+	mix-blend-mode: overlay;
+	text-decoration: none;
+}
+.currentLocation:hover {
+	background-color: #2e2e2e;
+	mix-blend-mode: color-dodge;
+}
+
+.popupMenu {
+	height: fit-content;
+	width: fit-content;
+	position: relative; /* or 'fixed' depending on your layout */
+	background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+	backdrop-filter: blur(10px); /* Glass effect */
+	-webkit-backdrop-filter: blur(10px); /* For Safari */
+	border-radius: 10px;
+	padding: 10px;
+	z-index: 1000; /* Ensure it's above other elements */
+}
+
+.cityList {
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 20px 0;
+}
+
+.cityList li {
+	float: left;
+}
+
+.cityList li a {
+	background-color: #ffffff00;
+	color: white;
+	display: inline;
+	font-size: large;
+	font-weight: normal;
+	mix-blend-mode: overlay;
+	padding: 8px;
+	text-decoration: none;
+}
+
+.cityList li a:visited {
+	color: white;
+}
+
+.cityList li a.Active {
+	font-weight: bold;
+	mix-blend-mode: normal;
+}
+
+.cityList li a:hover {
+	background-color: #2e2e2e;
+	border: none 1px;
+	border-radius: 20px;
+	mix-blend-mode: color-dodge;
+}
+
+/* Expandable Menu Button Style */
+.expandMenuButton {
+	background-color: transparent;
+	color: white;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	padding: 8px 15px;
+	margin: 10px 0;
+	font-size: large;
+	cursor: pointer;
+	mix-blend-mode: overlay;
+}
+
+.expandMenuButton:hover {
+	background-color: #2e2e2e;
+	mix-blend-mode: color-dodge;
+}
+
+.savedCityItem {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.deleteButton {
+	display: none;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.savedCityItem:hover .deleteButton {
+	display: inline;
+}
+
+/* City Input Form Style */
+.cityInputForm {
+	display: flex;
+	align-items: space-between;
+	gap: 10px;
+}
+
+/* Text Input Style */
+.cityInput {
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	background-color: rgba(255, 255, 255, 0.2);
+	color: white;
+	font-size: 16px;
+}
+
+.cityInput:focus {
+	outline: none;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-color: #00fddb;
+}
+
+/* Add City Button Style */
+.addCityButton {
+	background-color: #2e2e2e;
+	color: white;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	padding: 8px 10px;
+	margin: 10px 0px;
+
+	font-size: 16px;
+	cursor: pointer;
+	mix-blend-mode: color-dodge;
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.addCityButton:hover {
+	background-color: #00fddb;
+	color: #2e2e2e;
+	border-color: #00fddb;
+}
+
+.Location {
+	display: inline-flex;
+	font-size: 80px;
+	font-weight: bold;
+	margin: 10px;
+	padding-left: 20px;
+	text-align: left;
+	text-transform: capitalize;
+}
+
+.container {
+	align-items: auto;
+	align-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.map-container {
+	border: none 1px;
+	border-radius: 30px;
+	height: 400px;
+	max-width: 100%;
+	margin: 10px;
+}
+
+.sidebar {
+	background-color: rgba(35, 55, 75, 0.9);
+	color: #fff;
+	padding: 6px 12px;
+	font-family: monospace;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 12px;
+	border-radius: 4px;
+}
+
+.item {
+	backdrop-filter: blur(5px);
+	backdrop-filter: opacity(20%);
+	backdrop-filter: drop-shadow(4px 4px 10px grey);
+	background: rgba(221, 221, 221, 0.301);
+	border: none 1px;
+	border-radius: 30px;
+	flex: 1 1 auto;
+	margin: 10px;
+	padding: 30px;
+	padding-top: 15px;
+}
+
+.item h2 {
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.highlightedData {
+	font-size: 50px;
+}
+
+.WeatherIcon {
+	align-items: right;
+	display: inline-flex;
+	float: right;
+	font-size: 100px;
+	justify-content: right;
+	padding: 0 25px;
+}
+
+footer {
+	bottom: 0;
+	color: white;
+	text-align: center;
+}
+
+footer > a {
+	color: #00fddb;
+	font-weight: 500;
+	mix-blend-mode: overlay;
+	text-decoration: none;
+}
+
+@media (max-width: 800px) {
+	/*
+		General rule:
+			so long as the min-width of the browser windows > value: desktop style
+
+			so long as the max-width of the browser windows > value: mobile style
+
+	*/
+
+	.Location {
+		align-items: left;
+		display: flex;
+		font-size: 55px;
+		justify-content: center;
+		margin-top: 0px;
+		padding-left: 0px;
+	}
+
+	.cityList {
+		display: block; /* Make the links appear below each other */
+	}
+
+	.cityList li {
+		overflow-y: auto;
+	}
+	.cityList li a {
+		display: block;
+		float: none;
+		position: relative;
+		width: 200px;
+		font-size: 15px;
+	}
+
+	.WeatherIcon {
+		align-items: left;
+		display: flex;
+		float: none;
+		font-size: 20vmax;
+		justify-content: center;
+		margin-top: 0px;
+		margin: 5%;
+		padding: auto;
+	}
+}
